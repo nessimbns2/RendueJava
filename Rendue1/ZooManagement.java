@@ -29,5 +29,8 @@ public class ZooManagement
         
         System.out.println("Zoo Name: " + zooName);
         System.out.println("Number of Cages: " + nbrCages);
+        scanner.close();
     }
+
+
 }
