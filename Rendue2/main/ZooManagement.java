@@ -1,6 +1,9 @@
-package Rendue2;
+package Rendue2.main;
 
 import java.util.*;
+
+import Rendue2.entities.Animal;
+import Rendue2.entities.Zoo;
 
 public class ZooManagement {
     public static void main(String[] args) {

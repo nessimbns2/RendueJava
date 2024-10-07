@@ -1,11 +1,50 @@
 package Rendue2;
 import java.util.List;
 public class Zoo {
-    public Animal[] animals;
-    public String name;
-    public String city;
-    final int nbrCages= 25;
-    public int nbrAnimal;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private final int nbrCages = 25;
+    private int nbrAnimal;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            System.out.println("Zoo name cannot be empty");
+        }
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getNbrAnimal() {
+        return nbrAnimal;
+    }
+
+    public void setNbrAnimal(int nbrAnimal) {
+        this.nbrAnimal = nbrAnimal;
+    }
 
 
     public Zoo(String name, String city, Animal[] animals) {
@@ -27,17 +66,16 @@ public class Zoo {
         System.out.println("Number of cages: " + nbrCages);
         System.out.println("Animals in the zoo: ");
         for (int i = 0; i < this.nbrAnimal; i++) {
-            
-            System.out.println("Name: " + this.animals[i].name);
-            System.out.println("Family: " + this.animals[i].family);
-            System.out.println("Age: " + this.animals[i].age);
-            System.out.println("Is Mammal: " + this.animals[i].isMammal);
+            System.out.println("Name: " + this.animals[i].getName());
+            System.out.println("Family: " + this.animals[i].getFamily());
+            System.out.println("Age: " + this.animals[i].getAge());
+            System.out.println("Is Mammal: " + this.animals[i].isMammal());
             System.out.println(i);
         }
     }
 
 public boolean addAnimal(Animal animal){
-    if (nbrAnimal >= animals.length && searchAnimal(animal) != -1  && nbrAnimal >= nbrCages){
+    if (nbrAnimal >= animals.length && searchAnimal(animal) != -1  && this.isZooFull()){
         return false;
     }
     animals[nbrAnimal] = animal;
@@ -48,15 +86,15 @@ public boolean addAnimal(Animal animal){
 
 public void displayAnimals(){
     for (int i = 0; i < this.nbrAnimal; i++) {
-        System.out.println("Name: " + this.animals[i].name);
-        System.out.println("Family: " + this.animals[i].family);
-        System.out.println("Age: " + this.animals[i].age);
-        System.out.println("Is Mammal: " + this.animals[i].isMammal);
+        System.out.println("Name: " + this.animals[i].getName());
+        System.out.println("Family: " + this.animals[i].getFamily());
+        System.out.println("Age: " + this.animals[i].getAge());
+        System.out.println("Is Mammal: " + this.animals[i].isMammal());
     }
 }
 public int searchAnimal(Animal animal){
     for (int i = 0; i < animals.length; i++) {
-        if (animals[i].name.equals(animal.name)){
+        if (animals[i].getName().equals(animal.getName())){
             return i;
         }
     }
@@ -88,11 +126,5 @@ public boolean removeAnimal(Animal animal){
         }
         return zoo2;
     }
-
-
-
-
-
-
 
 }
